@@ -12,4 +12,12 @@ class SiswaViewModel : ViewModel() {
 
     // Perbaikan 1: Gunakan _statusUI
     val statusUI: StateFlow<Siswa> = _statusUI.asStateFlow()
+
+    fun setSiswa(ls: MutableList<String>) {
+        // Perbaikan 2: Panggil update dari _statusUI
+        _statusUI.update { statusSaatIni ->
+            // Perbaikan 3: Perbaiki typo 1 s [2] menjadi ls[2]
+            statusSaatIni.copy(nama = ls[0], gender = ls[1], alamat = ls[2])
+        }
+    }
 }
