@@ -23,3 +23,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.navigasidata.R
 import com.example.navigasidata.model.Siswa
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun TampilSiswa(
+    //edit 1 : parameter statusUiSiswa
+    statusUiSiswa: Siswa,
+    onBackButtonClicked:() -> Unit
+) {
+    //edit 2 : items Pair
+    val items = listOf(
+        Pair(stringResource(R.string.nama), statusUiSiswa.nama),
+        Pair(stringResource(id = R.string.gender), statusUiSiswa.gender),
+        Pair(stringResource(R.string.alamat), statusUiSiswa.alamat)
+    )
+
+}
